@@ -3,9 +3,7 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
 
 class HomeController extends AbstractController
 {
@@ -15,15 +13,6 @@ class HomeController extends AbstractController
     public function index()
     {
         return $this->render('home.html.twig');
-    }
-
-    /**
-     * @Route("/url")
-     */
-    public function url()
-    {
-        return $this->render('home.html.twig', [
-        ]);
     }
 
 }
