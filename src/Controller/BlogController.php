@@ -6,13 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/blog/show", name="blog_show")
+ * @Route("/blog/show")
  */
 class BlogController extends AbstractController
 {
 
     /**
-     * @Route("/")
+     * @Route("/", name="blog_index")
      */
     public function index()
     {
@@ -23,9 +23,9 @@ class BlogController extends AbstractController
     }
 
     /**
-     * @Route("/{slug}", requirements={"slug" = "[a-z0-9-]+"}, name="_slug")
+     * @Route("/{slug}", requirements={"slug" = "[a-z0-9-]+"}, methods={"GET"}, name="blog_slug")
      */
-    public function show($slug)
+    public function show(string $slug)
     {
         $slug = str_replace('-', ' ', $slug);
         $slug = ucwords($slug);
