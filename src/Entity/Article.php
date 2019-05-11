@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints as Assert;;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
@@ -28,6 +28,12 @@ class Article
      * @Assert\NotBlank
      */
     private $content;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Categorys")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $categorys;
 
     public function getId(): ?int
     {
@@ -54,6 +60,18 @@ class Article
     public function setContent(string $content): self
     {
         $this->content = $content;
+
+        return $this;
+    }
+
+    public function getCategorys(): ?Categorys
+    {
+        return $this->categorys;
+    }
+
+    public function setCategorys(?Categorys $categorys): self
+    {
+        $this->categorys = $categorys;
 
         return $this;
     }
