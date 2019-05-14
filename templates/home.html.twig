@@ -1,5 +1,25 @@
 {% extends 'base.html.twig' %}
 
  {% block body %}
-     <h1>Hello WCS</h1>
+
+     <a href="{{ path('blog_show', { 'slug': "javascript-vs-php" }) }}">
+         Testing show() method from BlogController with a real article s slug.
+     </a>
+
+     <br>
+
+     <h1>All articles from article s table : </h1>
+
+     {% for article in articles %}
+         <div>
+             <h2>{{ loop.index }} / {{ article.title }} - Category : {{ article.categorys.name }}</h2>
+             <p>{{ article.content }}</p>
+         </div>
+     {% else %}
+         Aucun article trouvé.
+     {% endfor %}
+     <a href="{{ path('blog_index') }}">
+         Back to homepage.
+     </a>
+
  {% endblock %}

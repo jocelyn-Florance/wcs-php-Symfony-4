@@ -1,5 +1,15 @@
 {% extends 'base.html.twig' %}
 
  {% block body %}
-     <h1>{{ slug }}</h1>
+
+     <div>
+         <h1>Real article s title : {{ article.title }}</h1>
+         <h2>Category : {{ article.categorys.name }}</h2>
+         <p>{{ article.content }}</p>
+     </div>
+
+     <a href="{{ path('blog_index') }}">
+         Testing index() method from BlogController to view all articles.
+     </a>
+
  {% endblock %}
