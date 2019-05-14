@@ -19,13 +19,6 @@ class CategorysRepository extends ServiceEntityRepository
         parent::__construct($registry, Categorys::class);
     }
 
-    public function findOneByName($categoryName)
-    {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.name = :val')
-            ->setParameter('val', $categoryName)
-            ->getQuery()
-            ->getResult();
-    }
+
 
 }

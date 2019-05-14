@@ -30,7 +30,7 @@ class Article
     private $content;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Categorys")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Categorys", inversedBy="articles")
      * @ORM\JoinColumn(nullable=false)
      */
     private $categorys;

@@ -19,16 +19,6 @@ class ArticleRepository extends ServiceEntityRepository
         parent::__construct($registry, Article::class);
     }
 
-    public function findByCategory($category)
-    {
-        return $this->createQueryBuilder('a')
-            ->andWhere('a.categorys = :val')
-            ->setParameter('val', $category)
-            ->orderBy('a.id', 'DESC')
-            ->setMaxResults(3)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
+
 
 }

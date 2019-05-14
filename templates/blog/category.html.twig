@@ -2,14 +2,20 @@
 
  {% block body %}
 
-{% for article in articles %}
-    <div>
-        <h2>{{ loop.index }} / {{ article.title }} - Category : {{ article.categorys.name }}</h2>
-        <p>{{ article.content }}</p>
-    </div>
-{% else %}
-    Aucun article trouvé.
-{% endfor %}
+     <h1>Category Name : {{ category.name }}</h1>
+
+     <h3>Article</h3>
+
+     {% for article in articles %}
+         <div>
+             <h5>Titre : <a href="{{ path('blog_show', { 'slug': article.title|replace({' ': '-'}) }) }}" >{{ article.title }}</a> </h5>
+             <p>Id : {{ article.id }}</p>
+             <p>Contenu : {{ article.content }}</p>
+         </div>
+         <hr>
+     {% else %}
+         Aucun article trouvé.
+     {% endfor %}
 
      <a href="{{ path('blog_index') }}">
          All articles

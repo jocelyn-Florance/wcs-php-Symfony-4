@@ -4,12 +4,12 @@
 
      <div>
          <h1>Real article s title : {{ article.title }}</h1>
-         <h2>Category : {{ article.categorys.name }}</h2>
+         <h2>Category : <a href="{{ path('blog_show_category', { 'category': article.categorys.name|replace({' ': '-'}) }) }}">{{ article.categorys.name }}</a></h2>
          <p>{{ article.content }}</p>
      </div>
 
      <a href="{{ path('blog_index') }}">
-         Testing index() method from BlogController to view all articles.
+         All articles
      </a>
 
  {% endblock %}
