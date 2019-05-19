@@ -4,7 +4,7 @@
 
      <div>
          <h1>Real article s title : {{ article.title }}</h1>
-         <h2>Category : <a href="{{ path('blog_show_category', { 'category': article.categorys.name|replace({' ': '-'}) }) }}">{{ article.categorys.name }}</a></h2>
+         <h2>Category : <a href="{{ path('blog_show_category', { 'name': article.categorys.name|replace({' ': '-'}) }) }}">{{ article.categorys.name }}</a></h2>
          <p>{{ article.content }}</p>
      </div>
 
